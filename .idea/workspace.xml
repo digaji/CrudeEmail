@@ -4,25 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22addeba-987f-478b-91fe-ea1f53189236" name="Default Changelist" comment="Working prototype for sending email">
+    <list default="true" id="22addeba-987f-478b-91fe-ea1f53189236" name="Default Changelist" comment="Divided send to different class + added confirm before exit">
       <change afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/ReceiveMail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/SendMail.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/LandingController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/LoginGmailController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/LoginOutlookController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/MainController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/SendController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/TestController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/org/crudeemail/landing.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/org/crudeemail/loginGmail.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/org/crudeemail/loginOutlook.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/org/crudeemail/main.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/org/crudeemail/send.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/TestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/crudeemail/test.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/crudeemail/test.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +137,7 @@
       <workItem from="1621347514757" duration="11486000" />
       <workItem from="1621427559507" duration="3697000" />
       <workItem from="1621444933964" duration="1377000" />
-      <workItem from="1621492656703" duration="15125000" />
+      <workItem from="1621492656703" duration="15437000" />
     </task>
     <task id="LOCAL-00001" summary="Changed gitignore inside .idea">
       <created>1621350190010</created>
@@ -167,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621502940572</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Divided send to different class + added confirm before exit">
+      <created>1621519265195</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1621519265195</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +189,7 @@
     <MESSAGE value="Changed gitignore inside .idea" />
     <MESSAGE value="Deleted target folder" />
     <MESSAGE value="Working prototype for sending email" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working prototype for sending email" />
+    <MESSAGE value="Divided send to different class + added confirm before exit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Divided send to different class + added confirm before exit" />
   </component>
 </project>
