@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.crudeemail.TestController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.crudeemail.controller.TestController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="240.0" layoutY="60.0" prefHeight="600.0" prefWidth="800.0">
          <children>
@@ -40,7 +40,7 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </PasswordField>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Send to (E-mail)">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Recipients (E-mail)">
                <font>
                   <Font size="15.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="sendtoInput" promptText="e-mail">
+            <TextField fx:id="recipientsInput" promptText="e-mail">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
@@ -82,5 +82,10 @@
             <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#sendMail" prefHeight="40.0" prefWidth="130.0" text="Send" />
          </children>
       </VBox>
+      <Text layoutX="14.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="test.fxml">
+         <font>
+            <Font name="System Bold" size="50.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
