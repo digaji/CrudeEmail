@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * JavaFX App
+ * Main JavaFX Client
  */
 public class App extends Application {
 
@@ -17,7 +17,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("test"));
+        stage.setTitle("Crude Email");
         stage.setScene(scene);
         stage.show();
     }
