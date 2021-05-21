@@ -7,7 +7,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import org.crudeemail.SendMail;
+import org.crudeemail.App;
+import org.crudeemail.provider.Gmail;
+
+import java.io.IOException;
 
 public class TestController {
 
@@ -21,7 +24,7 @@ public class TestController {
     private TextField recipientsInput;
 
     @FXML
-    private TextField headerInput;
+    private TextField subjectInput;
 
     @FXML
     private TextArea contentInput;
@@ -32,7 +35,8 @@ public class TestController {
         System.out.println("Wow");
 
         try {
-            SendMail.send(mailInput.getText(), passwordInput.getText(), recipientsInput.getText(), headerInput.getText(), contentInput.getText());
+            Gmail client = new Gmail();
+            client.send(mailInput.getText(), passwordInput.getText(), recipientsInput.getText(), "", "", subjectInput.getText(), contentInput.getText());
             System.out.println("Success");
         } catch (MessagingException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -47,8 +51,18 @@ public class TestController {
             mailInput.setText("");
             passwordInput.setText("");
             recipientsInput.setText("");
-            headerInput.setText("");
+            recipientsInput.setText("");
             contentInput.setText("");
         }
+    }
+
+    @FXML
+    void changeToLanding(MouseEvent event) throws IOException {
+        App.setRoot("landing.fxml");
+    }
+
+    @FXML
+    void changeToMain(MouseEvent event) throws IOException {
+        App.setRoot("main.fxml");
     }
 }
