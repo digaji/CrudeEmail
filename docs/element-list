@@ -1,3 +1,4 @@
 module:org.crudeemail
 org.crudeemail
 org.crudeemail.controller
+org.crudeemail.provider
