@@ -1,4 +1,4 @@
-package org.crudeemail;
+package org.crudeemail.mail;
 
 import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
@@ -8,24 +8,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-public abstract class Mail {
+public abstract class MailAccount {
 
     private Properties propSend;
     private Properties propReceive;
 
-    protected Properties getPropSend() {
+    public Properties getPropSend() {
         return propSend;
     }
 
-    protected Properties getPropReceive() {
+    public Properties getPropReceive() {
         return propReceive;
     }
 
-    protected void setPropSend(Properties prop) {
+    public void setPropSend(Properties prop) {
         this.propSend = prop;
     }
 
-    protected void setPropReceive(Properties prop) {
+    public void setPropReceive(Properties prop) {
         this.propReceive = prop;
     }
 

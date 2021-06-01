@@ -7,12 +7,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import org.crudeemail.App;
-import org.crudeemail.provider.Gmail;
+import javafx.stage.Stage;
+import org.crudeemail.mail.MailAccount;
+import org.crudeemail.ResourcesController;
+import org.crudeemail.mail.Gmail;
 
-import java.io.IOException;
-
-public class TestController {
+public class TestController extends AbstractController {
 
     @FXML
     private TextField mailInput;
@@ -28,6 +28,10 @@ public class TestController {
 
     @FXML
     private TextArea contentInput;
+
+    public TestController(MailAccount mailAccount, ResourcesController resourcesController, String fxml) {
+        super(mailAccount, resourcesController, fxml);
+    }
 
 
     @FXML
@@ -57,12 +61,16 @@ public class TestController {
     }
 
     @FXML
-    void changeToLanding(MouseEvent event) throws IOException {
-        App.setRoot("landing.fxml");
+    void changeToLanding(MouseEvent event) {
+        resourcesController.landingWindow();
+        Stage currentStage = (Stage) mailInput.getScene().getWindow();
+        resourcesController.closeStage(currentStage);
     }
 
     @FXML
-    void changeToMain(MouseEvent event) throws IOException {
-        App.setRoot("main.fxml");
+    void changeToMain(MouseEvent event) {
+        resourcesController.mainWindow();
+        Stage currentStage = (Stage) mailInput.getScene().getWindow();
+        resourcesController.closeStage(currentStage);
     }
 }

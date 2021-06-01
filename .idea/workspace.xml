@@ -4,22 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22addeba-987f-478b-91fe-ea1f53189236" name="Default Changelist" comment="Changed folder name to docs">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/Mail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/ProcessMail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/provider/Gmail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/provider/Outlook.java" afterDir="false" />
+    <list default="true" id="22addeba-987f-478b-91fe-ea1f53189236" name="Default Changelist" comment="Updated javadocs">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/org.crudeemail/module-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/org.crudeemail/module-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/org.crudeemail/org/crudeemail/Mail.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/org.crudeemail/org/crudeemail/Mail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/org.crudeemail/org/crudeemail/ProcessMail.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/org.crudeemail/org/crudeemail/ProcessMail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/org.crudeemail/org/crudeemail/SendMail.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/org.crudeemail/org/crudeemail/SendMail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/org.crudeemail/org/crudeemail/provider/Gmail.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/org.crudeemail/org/crudeemail/provider/Gmail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/org.crudeemail/org/crudeemail/provider/Outlook.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/org.crudeemail/org/crudeemail/provider/Outlook.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/ReceiveMail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/SendMail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/Mail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/MailAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/ProcessMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/ProcessMail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/LandingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/LandingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/LoginGmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/LoginGmailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/LoginOutlookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/LoginOutlookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/SendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/SendController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/provider/Gmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/provider/Gmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/crudeemail/provider/Outlook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/crudeemail/provider/Outlook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/crudeemail/landing.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/crudeemail/landing.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/crudeemail/loginGmail.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/crudeemail/loginGmail.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/crudeemail/loginOutlook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/crudeemail/loginOutlook.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/crudeemail/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/crudeemail/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/crudeemail/send.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/crudeemail/send.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/crudeemail/test.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/crudeemail/test.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,8 +44,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -82,11 +93,11 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn install" />
       <command value="mvn clean" />
+      <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Application.testReceive">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.crudeemail.App" />
       <module name="CrudeEmail" />
@@ -131,7 +142,7 @@
       <module name="CrudeEmail" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.crudeemail.*" />
+          <option name="PATTERN" value="org.crudeemail.mail.MailAccount" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,23 +150,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
         <item itemvalue="Application.testReceive" />
+        <item itemvalue="Application.App" />
         <item itemvalue="Application.SendMail" />
         <item itemvalue="Application.Build" />
       </list>
@@ -173,7 +182,12 @@
       <workItem from="1621427559507" duration="3697000" />
       <workItem from="1621444933964" duration="1377000" />
       <workItem from="1621492656703" duration="21663000" />
-      <workItem from="1621584885003" duration="20816000" />
+      <workItem from="1621584885003" duration="23075000" />
+      <workItem from="1621690937586" duration="604000" />
+      <workItem from="1621906668148" duration="46000" />
+      <workItem from="1621906726653" duration="1861000" />
+      <workItem from="1622209930015" duration="838000" />
+      <workItem from="1622534969189" duration="14424000" />
     </task>
     <task id="LOCAL-00001" summary="Changed gitignore inside .idea">
       <created>1621350190010</created>
@@ -217,7 +231,28 @@
       <option name="project" value="LOCAL" />
       <updated>1621519423934</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Working prototype for receiving and displaying email">
+      <created>1621620139581</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1621620139581</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Updated javadocs">
+      <created>1621620277385</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1621620277385</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Updated javadocs">
+      <created>1621620291723</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1621620291723</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +277,8 @@
     <MESSAGE value="Divided send to different class + added confirm before exit" />
     <MESSAGE value="Javadoc testing" />
     <MESSAGE value="Changed folder name to docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed folder name to docs" />
+    <MESSAGE value="Working prototype for receiving and displaying email" />
+    <MESSAGE value="Updated javadocs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated javadocs" />
   </component>
 </project>

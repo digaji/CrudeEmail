@@ -1,4 +1,4 @@
-package org.crudeemail;
+package org.crudeemail.mail;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.Multipart;
@@ -6,7 +6,7 @@ import jakarta.mail.Part;
 
 import java.io.IOException;
 
-public class ProcessMail {
+public final class ProcessMail {
 
     public static String getText(Part p) throws MessagingException, IOException {
         if (p.isMimeType("text/*")) {

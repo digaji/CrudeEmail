@@ -78,12 +78,12 @@ loadScripts(document, 'script');</script>
 <h1 title="Class Mail" class="title">Class Mail</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree">java.lang.Object
-<div class="inheritance">org.crudeemail.Mail</div>
+<div class="inheritance">org.crudeemail.mail.MailAccount</div>
 </div>
 <section class="description">
 <dl class="notes">
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="provider/Gmail.html" title="class in org.crudeemail.provider">Gmail</a></code>, <code><a href="provider/Outlook.html" title="class in org.crudeemail.provider">Outlook</a></code></dd>
+<dd><code><a href="provider/Gmail.html" title="class in org.crudeemail.mail.provider">Gmail</a></code>, <code><a href="provider/Outlook.html" title="class in org.crudeemail.mail.provider">Outlook</a></code></dd>
 </dl>
 <hr>
 <pre>public abstract class <span class="type-name-label">Mail</span>
@@ -283,10 +283,10 @@ java.lang.String&nbsp;cc,
 java.lang.String&nbsp;bcc,
 java.lang.String&nbsp;subject,
 java.lang.String&nbsp;content)</span>
-          throws <span class="exceptions">jakarta.mail.MessagingException</span></div>
+          throws <span class="exceptions">jakarta.mailAccount.MessagingException</span></div>
 <dl class="notes">
 <dt>Throws:</dt>
-<dd><code>jakarta.mail.MessagingException</code></dd>
+<dd><code>jakarta.mailAccount.MessagingException</code></dd>
 </dl>
 </section>
 </li>
@@ -295,11 +295,11 @@ java.lang.String&nbsp;content)</span>
 <h3>receive</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">java.util.ArrayList&lt;java.lang.String&gt;</span>&nbsp;<span class="member-name">receive</span>&#8203;(<span class="parameters">java.lang.String&nbsp;username,
 java.lang.String&nbsp;password)</span>
-                                              throws <span class="exceptions">jakarta.mail.MessagingException,
+                                              throws <span class="exceptions">jakarta.mailAccount.MessagingException,
 java.io.IOException</span></div>
 <dl class="notes">
 <dt>Throws:</dt>
-<dd><code>jakarta.mail.MessagingException</code></dd>
+<dd><code>jakarta.mailAccount.MessagingException</code></dd>
 <dd><code>java.io.IOException</code></dd>
 </dl>
 </section>

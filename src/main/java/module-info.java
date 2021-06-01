@@ -8,6 +8,6 @@ module org.crudeemail {
     exports org.crudeemail;
     exports org.crudeemail.controller;
     opens org.crudeemail.controller to javafx.fxml;
-    exports org.crudeemail.provider;
-    opens org.crudeemail.provider to javafx.fxml;
+    exports org.crudeemail.mail;
+    opens org.crudeemail.mail to javafx.fxml;
 }

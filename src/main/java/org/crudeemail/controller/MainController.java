@@ -7,13 +7,15 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebView;
-import org.crudeemail.App;
-import org.crudeemail.provider.Gmail;
+import javafx.stage.Stage;
+import org.crudeemail.mail.MailAccount;
+import org.crudeemail.ResourcesController;
+import org.crudeemail.mail.Gmail;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MainController {
+public class MainController extends AbstractController {
 
     @FXML
     private WebView htmlContent;
@@ -24,9 +26,15 @@ public class MainController {
     @FXML
     private PasswordField passwordInput;
 
+    public MainController(MailAccount mailAccount, ResourcesController resourcesController, String fxml) {
+        super(mailAccount, resourcesController, fxml);
+    }
+
     @FXML
-    void changeToTest(MouseEvent event) throws IOException {
-        App.setRoot("test.fxml");
+    void changeToTest(MouseEvent event) {
+        resourcesController.testWindow();
+        Stage currentStage = (Stage) mailInput.getScene().getWindow();
+        resourcesController.closeStage(currentStage);
     }
 
     @FXML
@@ -36,7 +44,7 @@ public class MainController {
             Gmail client = new Gmail();
             ArrayList<String> contents = client.receive(mailInput.getText(), passwordInput.getText());
 
-            htmlContent.getEngine().loadContent(contents.get(3));
+            htmlContent.getEngine().loadContent(contents.get(1));
 
             System.out.println("Success");
         } catch (MessagingException | IOException e) {

@@ -11,7 +11,7 @@
 <?import javafx.scene.web.WebView?>
 
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.crudeemail.controller.MainController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text layoutX="14.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="main.fxml">
          <font>
@@ -31,7 +31,7 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="mailInput" promptText="e-mail (Gmail Only)">
+            <TextField fx:id="mailInput" promptText="e-mailAccount (Gmail Only)">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
