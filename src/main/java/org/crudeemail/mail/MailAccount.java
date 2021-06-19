@@ -1,98 +1,77 @@
 package org.crudeemail.mail;
 
-import jakarta.mail.*;
-import jakarta.mail.internet.InternetAddress;
-import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.Session;
+import jakarta.mail.Store;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Properties;
 
-public abstract class MailAccount {
+public class MailAccount {
 
-    private Properties propSend;
-    private Properties propReceive;
+    // Fields
+    private String address;
+    private String password;
+    private Properties prop;
+    private Store store;
+    private Session session;
 
-    public Properties getPropSend() {
-        return propSend;
-    }
+    // Constructor(s)
+    public MailAccount(String provider, String address, String password) {
+        prop = new Properties();
+        if (provider.equals("gmail")) {
+            // Gmail settings
+            prop.put("mail.smtp.host", "smtp.gmail.com");
 
-    public Properties getPropReceive() {
-        return propReceive;
-    }
+            prop.put("mail.imap.host", "imap.gmail.com");
+        } else {
+            // Outlook settings
+            prop.put("mail.smtp.host", "smtp.office365.com");
 
-    public void setPropSend(Properties prop) {
-        this.propSend = prop;
-    }
-
-    public void setPropReceive(Properties prop) {
-        this.propReceive = prop;
-    }
-
-    public void send(String username, String password, String recipients, String cc, String bcc, String subject, String content) throws MessagingException {
-        Session sessionObj = Session.getInstance(getPropSend(),
-                new jakarta.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-        });
-
-        // Create new message object to send
-        Message message = new MimeMessage(sessionObj);
-        message.setFrom(new InternetAddress(username));
-
-        message.setRecipients(
-                Message.RecipientType.TO,
-                InternetAddress.parse(recipients)
-        );
-
-        if (!cc.equals("")) {
-            message.setRecipients(Message.RecipientType.CC,
-                    InternetAddress.parse(cc));
+            prop.put("mail.imap.host", "outlook.office365.com");
         }
 
-        if (!bcc.equals("")) {
-            message.setRecipients(Message.RecipientType.BCC,
-                    InternetAddress.parse(bcc));
-        }
+        prop.put("mail.smtp.port", "587");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.imap.port", "993");
+        prop.put("mail.imap.ssl.enable", "true");
+        prop.put("mail.smtp.starttls.enable", "true"); // Enable TLS
 
-        // Set message subject and contents
-        message.setSubject(subject);
-//            message.setContent("<p>HTML Message <b>Example</b></p>", "text/html; charset=utf-8");
-        message.setContent(content, "text/plain");
-
-        // Sends the final message
-        Transport.send(message);
+        this.address = address;
+        this.password = password;
     }
 
-    public ArrayList<String> receive(String username, String password) throws MessagingException, IOException {
-        Session sessionObj = Session.getInstance(getPropReceive(),
-                new jakarta.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-        });
+    // Getters
+    public String getAddress() {
+        return address;
+    }
 
-        // Create Store object to connect to servers
-        Store storeObj = sessionObj.getStore("imap");
-        storeObj.connect(getPropReceive().getProperty("mail.imap.host"), username, password);
+    public String getPassword() {
+        return password;
+    }
 
-        // Create folder object and open it in read-only mode
-        Folder folderObj = storeObj.getFolder("INBOX");
-        folderObj.open(Folder.READ_ONLY);
+    public Properties getProp() {
+        return prop;
+    }
 
-        // Fetch messages from the folder
-        Message[] messageObjs = folderObj.getMessages();
+    public Store getStore() {
+        return store;
+    }
 
-        ArrayList<String> processed = new ArrayList<>();
-        for (int i = 0, n = 5; i < n; i++) {
-            processed.add(ProcessMail.getText(messageObjs[i]));
-        }
+    public Session getSession() {
+        return session;
+    }
 
-        // Close all objects
-        folderObj.close(false);
-        storeObj.close();
+    // Setters
+    public void setStore(Store store) {
+        this.store = store;
+    }
 
-        return processed;
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
+    // Methods
+    @Override
+    public String toString() {
+        return address;
     }
 }

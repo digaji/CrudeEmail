@@ -1,20 +1,23 @@
 package org.crudeemail.controller;
 
-import org.crudeemail.mail.MailAccount;
 import org.crudeemail.ResourcesController;
+import org.crudeemail.mail.MailManage;
 
 public abstract class AbstractController {
 
-    protected MailAccount mailAccount;
+    // Fields
+    protected MailManage mailManage;
     protected ResourcesController resourcesController;
     private String fxml;
 
-    public AbstractController(MailAccount mailAccount, ResourcesController resourcesController, String fxml) {
-        this.mailAccount = mailAccount;
+    // Constructor
+    public AbstractController(MailManage mailManage, ResourcesController resourcesController, String fxml) {
+        this.mailManage = mailManage;
         this.resourcesController = resourcesController;
         this.fxml = fxml;
     }
 
+    // Methods
     public String getFxml() {
         return fxml;
     }

@@ -4,25 +4,21 @@ import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.crudeemail.mail.MailAccount;
 import org.crudeemail.ResourcesController;
+import org.crudeemail.mail.MailManage;
 
 public class LandingController extends AbstractController {
 
+    // JavaFX Components
     @FXML
     private Text crudeEmailLabel;
 
-    public LandingController(MailAccount mailAccount, ResourcesController resourcesController, String fxml) {
-        super(mailAccount, resourcesController, fxml);
+    // Constructor
+    public LandingController(MailManage mailManage, ResourcesController resourcesController, String fxml) {
+        super(mailManage, resourcesController, fxml);
     }
 
-    @FXML
-    void changeToTest(MouseEvent event) {
-        resourcesController.testWindow();
-        Stage currentStage = (Stage) crudeEmailLabel.getScene().getWindow();
-        resourcesController.closeStage(currentStage);
-    }
-
+    // Methods
     @FXML
     void changeToGmail(MouseEvent event) {
         resourcesController.loginGmailWindow();

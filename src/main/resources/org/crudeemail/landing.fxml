@@ -7,12 +7,6 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="14.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="landing.fxml">
-         <font>
-            <Font name="System Bold" size="50.0" />
-         </font>
-      </Text>
-      <Button layoutX="575.0" layoutY="571.0" mnemonicParsing="false" onMouseClicked="#changeToTest" prefHeight="40.0" prefWidth="130.0" text="Go To Test" />
       <Button layoutX="247.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#changeToGmail" prefHeight="40.0" prefWidth="130.0" text="Gmail" />
       <Button layoutX="875.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#changeToOutlook" prefHeight="40.0" prefWidth="130.0" text="Outlook" />
       <Text fx:id="crudeEmailLabel" layoutX="500.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crude Email">

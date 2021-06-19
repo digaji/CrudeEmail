@@ -1,65 +1,159 @@
 package org.crudeemail.controller;
 
-import jakarta.mail.MessagingException;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.web.WebView;
-import javafx.stage.Stage;
-import org.crudeemail.mail.MailAccount;
+import javafx.util.Callback;
 import org.crudeemail.ResourcesController;
-import org.crudeemail.mail.Gmail;
+import org.crudeemail.mail.MailManage;
+import org.crudeemail.mail.MailMessage;
+import org.crudeemail.mail.MailProcess;
+import org.crudeemail.mail.MailTreeItem;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import java.net.URL;
+import java.util.Date;
+import java.util.ResourceBundle;
 
-public class MainController extends AbstractController {
+public class MainController extends AbstractController implements Initializable {
+
+    // JavaFX Components
+    @FXML
+    private TreeView<String> mailTreeView;
 
     @FXML
-    private WebView htmlContent;
+    private TableView<MailMessage> mailTableView;
 
     @FXML
-    private TextField mailInput;
+    private TableColumn<MailMessage, String> fromColumn;
 
     @FXML
-    private PasswordField passwordInput;
+    private TableColumn<MailMessage, String> subjectColumn;
 
-    public MainController(MailAccount mailAccount, ResourcesController resourcesController, String fxml) {
-        super(mailAccount, resourcesController, fxml);
+    @FXML
+    private TableColumn<MailMessage, String> contentColumn;
+
+    @FXML
+    private TableColumn<MailMessage, Date> dateColumn;
+
+    @FXML
+    private WebView mailWebView;
+
+    private MenuItem markUnread = new MenuItem("Mark as Unread");
+    private MenuItem deleteMessage = new MenuItem("Delete Message");
+
+    // Fields
+    private MailProcess mailProcess;
+
+    // Constructor
+    public MainController(MailManage mailManage, ResourcesController resourcesController, String fxml) {
+        super(mailManage, resourcesController, fxml);
     }
 
+    // Methods
     @FXML
-    void changeToTest(MouseEvent event) {
-        resourcesController.testWindow();
-        Stage currentStage = (Stage) mailInput.getScene().getWindow();
-        resourcesController.closeStage(currentStage);
+    void composeMessageAction() {
+        resourcesController.sendWindow();
     }
 
-    @FXML
-    void loadMail(MouseEvent event) {
-        htmlContent.setContextMenuEnabled(false);
-        try {
-            Gmail client = new Gmail();
-            ArrayList<String> contents = client.receive(mailInput.getText(), passwordInput.getText());
-
-            htmlContent.getEngine().loadContent(contents.get(1));
-
-            System.out.println("Success");
-        } catch (MessagingException | IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Credential Error");
-            alert.setHeaderText("Error in inputted credentials!");
-            alert.show();
-
-            System.out.println("Failed");
-            e.printStackTrace();
-        } finally {
-            System.out.println("Done");
-            mailInput.setText("");
-            passwordInput.setText("");
-        }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Initialization methods
+        setMailTreeView();
+        setMailTableView();
+        setFolderSelect();
+        setUnreadMessages();
+        setMailProcess();
+        setMessageSelect();
+        setContextMenu();
     }
 
+    private void setMailTreeView() {
+        // Set the root of the treeView as the first folder
+        mailTreeView.setRoot(mailManage.getFolderRoot());
+        mailTreeView.setShowRoot(false);
+    }
+
+    private void setMailTableView() {
+        // Determine how to populate cells in TableView with cell value factories
+        fromColumn.setCellValueFactory(new PropertyValueFactory<>("sender"));
+        subjectColumn.setCellValueFactory(new PropertyValueFactory<>("subject"));
+        contentColumn.setCellValueFactory(new PropertyValueFactory<>("content"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+        // Add right click context menu
+        mailTableView.setContextMenu(new ContextMenu(markUnread, deleteMessage));
+    }
+
+    private void setFolderSelect() {
+        // Determine what happens when a specific mail folder is selected, also ignores mouse clicks to anything other than folders
+        mailTreeView.setOnMouseClicked(event -> {
+            MailTreeItem<String> current = (MailTreeItem<String>) mailTreeView.getSelectionModel().getSelectedItem();
+
+            if (current != null) {
+                mailManage.setSelectedFolder(current);
+                mailTableView.setItems(current.getMailMessages());
+            }
+        });
+    }
+
+    private void setUnreadMessages() {
+        // Set the rows with unread messages as bolded
+        mailTableView.setRowFactory(new Callback<>() {
+            @Override
+            public TableRow<MailMessage> call(TableView<MailMessage> param) {
+                // New class object with overridden method
+                return new TableRow<>() {
+                    @Override
+                    protected void updateItem(MailMessage message, boolean empty) {
+                        super.updateItem(message, empty);
+
+                        if (message != null) {
+                            if (message.isRead()) {
+                                setStyle("");
+                            } else {
+                                setStyle("-fx-font-weight: bold");
+                            }
+                        }
+                    }
+                };
+            }
+        });
+    }
+
+    private void setMailProcess() {
+        // Assign new MailProcess object to mailProcess
+        mailProcess = new MailProcess(mailWebView.getEngine());
+    }
+
+    private void setMessageSelect() {
+        // Determine what happens when a message is selected
+        mailTableView.setOnMouseClicked(event -> {
+            MailMessage mailMessage = mailTableView.getSelectionModel().getSelectedItem();
+
+            if (mailMessage != null) {
+                mailManage.setSelectedMessage(mailMessage);
+
+                if (!mailMessage.isRead()) {
+                    mailManage.setSelectedRead();
+                }
+
+                mailProcess.setMailMessage(mailMessage);
+                mailProcess.restart();
+            }
+        });
+    }
+
+    private void setContextMenu() {
+        // Add right click context menu to tableView
+        markUnread.setOnAction(event -> {
+            mailManage.setSelectedUnread();
+        });
+
+        deleteMessage.setOnAction(event -> {
+            mailManage.deleteSelected();
+            mailWebView.getEngine().loadContent("");
+        });
+    }
 }
