@@ -29,11 +29,12 @@ public class MailAccount {
             prop.put("mail.imap.host", "outlook.office365.com");
         }
 
+        // General settings
         prop.put("mail.smtp.port", "587");
         prop.put("mail.smtp.auth", "true");
         prop.put("mail.imap.port", "993");
         prop.put("mail.imap.ssl.enable", "true");
-        prop.put("mail.smtp.starttls.enable", "true"); // Enable TLS
+        prop.put("mail.smtp.starttls.enable", "true");
 
         this.address = address;
         this.password = password;

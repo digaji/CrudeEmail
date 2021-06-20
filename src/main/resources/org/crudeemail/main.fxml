@@ -1,38 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="720.0" prefWidth="1500.0" style="-fx-border-color: black; -fx-border-width: 2;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <children>
       <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
-          <Menu mnemonicParsing="false" text="Options">
+          <Menu mnemonicParsing="false" text="Option(s)">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#composeMessageAction" text="Compose Message" />
-                  <MenuItem mnemonicParsing="false" text="Log Out" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
       <TreeView fx:id="mailTreeView" layoutY="24.0" prefHeight="696.0" prefWidth="218.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="24.0" />
-      <TableView fx:id="mailTableView" layoutX="217.0" layoutY="24.0" prefHeight="670.0" prefWidth="722.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="217.0" AnchorPane.rightAnchor="341.0" AnchorPane.topAnchor="24.0">
+      <TableView fx:id="mailTableView" layoutX="217.0" layoutY="24.0" prefHeight="696.0" prefWidth="715.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="217.0" AnchorPane.topAnchor="24.0">
         <columns>
           <TableColumn fx:id="fromColumn" editable="false" prefWidth="166.0" sortable="false" text="From" />
-          <TableColumn fx:id="subjectColumn" editable="false" prefWidth="229.0" sortable="false" text="Subject" />
+          <TableColumn fx:id="subjectColumn" editable="false" prefWidth="223.0" sortable="false" text="Subject" />
             <TableColumn fx:id="contentColumn" editable="false" minWidth="0.0" prefWidth="151.0" sortable="false" text="Content" />
-            <TableColumn fx:id="dateColumn" editable="false" minWidth="0.0" prefWidth="175.0" text="Date" />
+            <TableColumn fx:id="dateColumn" editable="false" minWidth="0.0" prefWidth="169.33331298828125" text="Date" />
         </columns>
       </TableView>
-      <WebView fx:id="mailWebView" layoutX="940.0" layoutY="24.0" prefHeight="696.0" prefWidth="340.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="940.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0" />
-      <Button layoutX="218.0" layoutY="694.0" mnemonicParsing="false" text="&lt;-" AnchorPane.bottomAnchor="1.0" />
-      <Button layoutX="909.0" layoutY="694.0" mnemonicParsing="false" text="-&gt;" AnchorPane.bottomAnchor="1.0" />
+      <WebView fx:id="mailWebView" layoutX="930.0" layoutY="155.0" prefHeight="565.0" prefWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="932.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="155.0" />
+      <Label layoutX="951.0" layoutY="40.0" prefHeight="17.0" prefWidth="41.0" text="From: " AnchorPane.leftAnchor="949.0" AnchorPane.rightAnchor="290.0" AnchorPane.topAnchor="40.0" />
+      <Label layoutX="952.0" layoutY="65.0" prefHeight="17.0" prefWidth="21.0" text="To:" AnchorPane.leftAnchor="950.0" AnchorPane.rightAnchor="309.0" AnchorPane.topAnchor="65.0" />
+      <Label layoutX="949.0" layoutY="90.0" prefHeight="17.0" prefWidth="46.0" text="Subject:" AnchorPane.leftAnchor="949.0" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="90.0" />
+      <Label fx:id="attachmentsLabel" layoutX="951.0" layoutY="125.0" prefHeight="17.0" prefWidth="75.0" text="Attachments:" AnchorPane.leftAnchor="950.0" AnchorPane.rightAnchor="255.0" AnchorPane.topAnchor="125.0" />
+      <Label fx:id="senderLabel" layoutX="1005.0" layoutY="40.0" AnchorPane.leftAnchor="1005.0" AnchorPane.topAnchor="40.0" />
+      <Label fx:id="recipientLabel" layoutX="1005.0" layoutY="65.0" AnchorPane.leftAnchor="1005.0" AnchorPane.topAnchor="65.0" />
+      <Label fx:id="subjectLabel" layoutX="1005.0" layoutY="90.0" AnchorPane.leftAnchor="1005.0" AnchorPane.topAnchor="90.0" />
+      <HBox fx:id="hBoxAttachments" layoutX="1028.0" layoutY="115.0" prefHeight="33.0" prefWidth="245.0" spacing="2.0" AnchorPane.leftAnchor="1026.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="115.0" />
+      <ProgressBar fx:id="mainProgressBar" layoutX="948.0" layoutY="102.0" opacity="0.0" prefHeight="18.0" prefWidth="70.0" />
    </children>
 </AnchorPane>

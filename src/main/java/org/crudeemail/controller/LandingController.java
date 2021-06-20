@@ -21,6 +21,7 @@ public class LandingController extends AbstractController {
     // Methods
     @FXML
     void changeToGmail(MouseEvent event) {
+        // Switch to Gmail window
         resourcesController.loginGmailWindow();
         Stage currentStage = (Stage) crudeEmailLabel.getScene().getWindow();
         resourcesController.closeStage(currentStage);
@@ -28,6 +29,7 @@ public class LandingController extends AbstractController {
 
     @FXML
     void changeToOutlook(MouseEvent event) {
+        // Switch to Outlook window
         resourcesController.loginOutlookWindow();
         Stage currentStage = (Stage) crudeEmailLabel.getScene().getWindow();
         resourcesController.closeStage(currentStage);

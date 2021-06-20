@@ -97,6 +97,7 @@ public class MailFolderFetch extends Service<Void> {
         folder.addMessageCountListener(new MessageCountListener() {
             @Override
             public void messagesAdded(MessageCountEvent e) {
+                // Add new incoming messages to the top of the TableView
                 for (int i = 0; i < e.getMessages().length; i++) {
                     try {
                         Message current = folder.getMessage(folder.getMessageCount() - i);
@@ -108,7 +109,7 @@ public class MailFolderFetch extends Service<Void> {
             }
             @Override
             public void messagesRemoved(MessageCountEvent e) {
-                System.out.println("Message removed " + e);
+                System.out.println("Message removed: " + e);
             }
         });
     }

@@ -1,10 +1,13 @@
 package org.crudeemail.mail;
 
 import jakarta.mail.Message;
+import jakarta.mail.internet.MimeBodyPart;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class MailMessage {
 
@@ -15,12 +18,14 @@ public class MailMessage {
     private SimpleStringProperty sender;
     private SimpleStringProperty recipient;
     private SimpleObjectProperty<Date> date;
+    private List<MimeBodyPart> attachments = new ArrayList<>();
+    private boolean hasAttachments;
     private boolean isRead;
     private Message message;
     private String content;
 
     // Constructor
-    public MailMessage(String subject, String sender, String recipient, Date date, boolean isRead, Message message, String content) {
+    public MailMessage(String subject, String sender, String recipient, Date date, boolean isRead, Message message, String content, boolean hasAttachments) {
         this.subject = new SimpleStringProperty(subject);
         this.sender = new SimpleStringProperty(sender);
         this.recipient = new SimpleStringProperty(recipient);
@@ -28,35 +33,44 @@ public class MailMessage {
         this.isRead = isRead;
         this.message = message;
         this.content = content;
+        this.hasAttachments = hasAttachments;
     }
 
     // Getters
     public String getSubject() {
-        return this.subject.get();
+        return subject.get();
     }
 
     public String getSender() {
-        return this.sender.get();
+        return sender.get();
     }
 
     public String getRecipient() {
-        return this.recipient.get();
+        return recipient.get();
     }
 
     public Date getDate() {
-        return this.date.get();
+        return date.get();
+    }
+
+    public List<MimeBodyPart> getAttachments() {
+        return attachments;
+    }
+
+    public boolean isHasAttachments() {
+        return hasAttachments;
     }
 
     public boolean isRead() {
-        return this.isRead;
+        return isRead;
     }
 
     public Message getMessage() {
-        return this.message;
+        return message;
     }
 
     public String getContent() {
-        return this.content;
+        return content;
     }
 
     // Setters
@@ -64,4 +78,11 @@ public class MailMessage {
         this.isRead = read;
     }
 
+    // Methods
+    public void addAttachment(MimeBodyPart mimeBodyPart) {
+        // Only add new attachments
+        if (!attachments.contains(mimeBodyPart)) {
+            attachments.add(mimeBodyPart);
+        }
+    }
 }

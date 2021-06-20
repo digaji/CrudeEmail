@@ -40,7 +40,8 @@ public class MailTreeItem<String> extends TreeItem<String> {
                 message.getSentDate(),
                 isRead,
                 message,
-                MailProcess.getText(message, false) // Doesn't display line breaks
+                MailProcess.getText(message), // Don't display line breaks,
+                MailProcess.hasAttachments(message)
         );
 
         if (!isRead) {

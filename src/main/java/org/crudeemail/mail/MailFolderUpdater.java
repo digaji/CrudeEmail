@@ -21,8 +21,9 @@ public class MailFolderUpdater extends Service<Void> {
     protected Task<Void> createTask() {
         return new Task<>() {
             @Override
-            protected Void call() throws Exception {
+            protected Void call() {
                 // Infinite loop
+                // Checks the message count of open folders to determine if there are new messages
                 while (true) {
                     try {
                         Thread.sleep(5000); // Every 5 seconds
@@ -38,6 +39,4 @@ public class MailFolderUpdater extends Service<Void> {
             }
         };
     }
-
-
 }

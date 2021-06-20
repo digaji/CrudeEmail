@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-border-color: black; -fx-border-width: 2;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <children>
       <Label layoutX="592.0" layoutY="148.0" text="Gmail Address">
          <font>
@@ -20,14 +20,28 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="gmailAddressInput" layoutX="474.0" layoutY="187.0" prefHeight="25.0" prefWidth="333.0" promptText="Gmail" />
-      <PasswordField fx:id="gmailPasswordInput" layoutX="474.0" layoutY="348.0" prefHeight="25.0" prefWidth="333.0" promptText="Password" />
-      <Button fx:id="gmailLoginButton" layoutX="575.0" layoutY="506.0" mnemonicParsing="false" onMouseClicked="#gmailLoginAction" prefHeight="40.0" prefWidth="130.0" text="Login" />
-      <Label fx:id="gmailErrorLabel" contentDisplay="CENTER" layoutX="560.0" layoutY="427.0" textAlignment="CENTER" textFill="#da1616">
+      <TextField fx:id="addressInput" layoutX="474.0" layoutY="187.0" prefHeight="25.0" prefWidth="333.0" promptText="Gmail">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <PasswordField fx:id="passwordInput" layoutX="474.0" layoutY="348.0" prefHeight="25.0" prefWidth="333.0" promptText="Password">
+         <font>
+            <Font size="15.0" />
+         </font></PasswordField>
+      <Button fx:id="loginButton" layoutX="575.0" layoutY="506.0" mnemonicParsing="false" onMouseClicked="#loginAction" prefHeight="40.0" prefWidth="130.0" text="Login">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Label fx:id="errorLabel" contentDisplay="CENTER" layoutX="560.0" layoutY="427.0" textAlignment="CENTER" textFill="#da1616">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <ProgressBar fx:id="gmailProgressBar" layoutX="540.0" layoutY="608.0" opacity="0.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.bottomAnchor="87.0" AnchorPane.topAnchor="608.0" />
+      <ProgressBar fx:id="progressBar" layoutX="540.0" layoutY="608.0" opacity="0.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.bottomAnchor="87.0" AnchorPane.topAnchor="608.0" />
+      <Button layoutX="8.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#changeToLanding" prefHeight="40.0" prefWidth="130.0" text="Back To Landing">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -1,9 +1,7 @@
 package org.crudeemail.mail;
 
-import jakarta.mail.Message;
-import jakarta.mail.MessagingException;
-import jakarta.mail.Multipart;
-import jakarta.mail.Part;
+import jakarta.mail.*;
+import jakarta.mail.internet.MimeBodyPart;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.scene.web.WebEngine;
@@ -34,7 +32,7 @@ public final class MailProcess extends Service<Void> {
     protected Task<Void> createTask() {
         return new Task<>() {
             @Override
-            protected Void call() throws Exception {
+            protected Void call() {
                 try {
                     load();
                 } catch (Exception e){
@@ -46,6 +44,7 @@ public final class MailProcess extends Service<Void> {
     }
 
     private void display() {
+        // Display contents of string buffer to webView
         webEngine.loadContent(stringBuffer.toString());
     }
 
@@ -53,73 +52,74 @@ public final class MailProcess extends Service<Void> {
         // Clear string buffer and set it to a new message
         stringBuffer.setLength(0);
         Message message = mailMessage.getMessage();
+        String contentType = message.getContentType();
 
-        stringBuffer.append(getText(message));
+        if (isSimple(contentType)) {
+            stringBuffer.append(message.getContent().toString());
+        } else if (isMultipart(contentType)) {
+            Multipart multipart = (Multipart) message.getContent();
+            loadMulti(multipart, stringBuffer);
+        }
+    }
+
+    private boolean isSimple(String contentType) {
+        return contentType.contains("TEXT/HTML") || contentType.contains("mixed") || contentType.contains("text");
+    }
+
+    private boolean isMultipart(String contentType) {
+        return contentType.contains("multipart");
+    }
+
+    private boolean isPlain(String contentType) {
+        return contentType.contains("TEXT/PLAIN");
+    }
+
+    private void loadMulti(Multipart multipart, StringBuffer stringBuffer) throws MessagingException, IOException {
+        // Processing for multipart messages
+        for (int i = multipart.getCount() - 1; i >= 0; i--) {
+            BodyPart bodyPart = multipart.getBodyPart(i);
+            String contentType = bodyPart.getContentType();
+
+            if (isSimple(contentType)) {
+                stringBuffer.append(bodyPart.getContent().toString());
+            } else if (isMultipart(contentType)) {
+                Multipart multipart2 = (Multipart) bodyPart.getContent();
+                loadMulti(multipart2, stringBuffer);
+            } else if (!isPlain(contentType)) {
+                MimeBodyPart mimeBodyPart = (MimeBodyPart) bodyPart;
+                mailMessage.addAttachment(mimeBodyPart);
+            }
+        }
     }
 
     public static String getText(Part p) throws MessagingException, IOException {
-        // Message processing for display on webView
-        if (p.isMimeType("text/*")) {
-            String s = (String)p.getContent();
-            return s;
-        }
-
-        if (p.isMimeType("multipart/alternative")) {
-            // Prefer html text over plain text
-            Multipart mp = (Multipart)p.getContent();
-            String text = null;
-            for (int i = 0; i < mp.getCount(); i++) {
-                Part bp = mp.getBodyPart(i);
-                if (bp.isMimeType("text/plain")) {
-                    if (text == null)
-                        text = getText(bp);
-                } else if (bp.isMimeType("text/html")) {
-                    String s = getText(bp);
-                    if (s != null)
-                        return s;
-                } else {
-                    return getText(bp);
-                }
-            }
-            return text;
-        } else if (p.isMimeType("multipart/*")) {
-            Multipart mp = (Multipart)p.getContent();
-            for (int i = 0; i < mp.getCount(); i++) {
-                String s = getText(mp.getBodyPart(i));
-                if (s != null)
-                    return s;
-            }
-        }
-
-        return null;
-    }
-
-    // getText method is from https://javaee.github.io/javamail/FAQ
-
-    public static String getText(Part p, boolean breaks) throws MessagingException, IOException {
         // Message processing for display on tableView
         if (p.isMimeType("text/*")) {
-            String s = (String)p.getContent();
+            String s = (String) p.getContent();
 
             // Replace line breaks with a single space
             s = s.replaceAll("\\R", " ");
 
             return s;
-        }
-
-        if (p.isMimeType("multipart/*")) {
+        } else if (p.isMimeType("multipart/*")) {
             Multipart mp = (Multipart)p.getContent();
             for (int i = 0; i < mp.getCount(); i++) {
                 String s = getText(mp.getBodyPart(i));
                 if (s != null) {
-                    // Replace line breaks with a single space
-                    s = s.replaceAll("\\R", " ");
-
                     return s;
                 }
             }
         }
-
         return null;
+    }
+    // getText method is from https://javaee.github.io/javamail/FAQ, modified to exclude line breaks
+
+    public static boolean hasAttachments(Message message) throws MessagingException, IOException {
+        // Determines if the message has attachments by seeing the number of BodyPart objects in the message
+        if (message.isMimeType("multipart/mixed")) {
+            Multipart multipart = (Multipart) message.getContent();
+            return multipart.getCount() > 1;
+        }
+        return false;
     }
 }

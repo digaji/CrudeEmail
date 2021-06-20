@@ -19,7 +19,7 @@ public class MailManage {
     public MailManage() {
         mailFolderUpdater = new MailFolderUpdater(foldersList);
 
-        // Start and execute mailFolderUpdater JavaFX service for multithreading
+        // Starts multithreading method from MailFolderUpdater (createTask())
         mailFolderUpdater.start();
     }
 
@@ -59,7 +59,7 @@ public class MailManage {
         MailTreeItem<String> treeItem = new MailTreeItem<>(mail.getAddress());
         MailFolderFetch mailFolderFetch = new MailFolderFetch(mail.getStore(), treeItem, foldersList);
 
-        // Start and execute mailFolderFetch JavaFX service for multithreading
+        // Starts multithreading method from MailFolderFetch (createTask())
         mailFolderFetch.start();
 
         folderRoot.getChildren().add(treeItem);

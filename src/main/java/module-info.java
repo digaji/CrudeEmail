@@ -3,6 +3,7 @@ module org.crudeemail {
     requires javafx.fxml;
     requires jakarta.mail;
     requires javafx.web;
+    requires java.desktop;
 
     opens org.crudeemail to javafx.fxml;
     exports org.crudeemail;

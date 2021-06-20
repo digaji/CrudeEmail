@@ -8,20 +8,26 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.HTMLEditor?>
 
-<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="800.0" prefWidth="800.0" style="-fx-border-color: black; -fx-border-width: 2;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <children>
-      <Label layoutX="40.0" layoutY="60.0" text="To:">
+      <Label layoutX="40.0" layoutY="40.0" text="To:">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="40.0" layoutY="120.0" text="Subject:">
+      <Label layoutX="40.0" layoutY="95.0" text="Subject:">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="recipientInput" layoutX="112.0" layoutY="58.0" prefHeight="25.0" prefWidth="475.0" />
-      <TextField fx:id="subjectInput" layoutX="112.0" layoutY="118.0" prefHeight="25.0" prefWidth="475.0" />
+      <TextField fx:id="recipientInput" layoutX="112.0" layoutY="35.0" prefHeight="25.0" prefWidth="475.0">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="subjectInput" layoutX="112.0" layoutY="89.0" prefHeight="25.0" prefWidth="475.0">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
       <HTMLEditor fx:id="contentInput" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="40.0" layoutY="193.0" prefHeight="540.0" prefWidth="720.0" />
       <Button fx:id="sendMailButton" layoutX="660.0" layoutY="746.0" mnemonicParsing="false" onAction="#sendMail" prefWidth="100.0" text="Send">
          <font>
@@ -32,6 +38,10 @@
          <font>
             <Font size="20.0" />
          </font></Label>
+      <Button fx:id="attachmentsButton" layoutX="40.0" layoutY="145.0" mnemonicParsing="false" onAction="#attachmentsButtonAction" text="Attachments: ">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
       <ProgressBar fx:id="sendProgressBar" layoutX="300.0" layoutY="749.0" opacity="0.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.bottomAnchor="26.0" AnchorPane.topAnchor="749.0" />
    </children>
 </AnchorPane>

@@ -1,11 +1,15 @@
 package org.crudeemail.controller;
 
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeBodyPart;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
+import org.crudeemail.AttachmentButton;
 import org.crudeemail.ResourcesController;
 import org.crudeemail.mail.MailManage;
 import org.crudeemail.mail.MailMessage;
@@ -40,6 +44,24 @@ public class MainController extends AbstractController implements Initializable 
     @FXML
     private WebView mailWebView;
 
+    @FXML
+    private Label attachmentsLabel;
+
+    @FXML
+    private Label senderLabel;
+
+    @FXML
+    private Label recipientLabel;
+
+    @FXML
+    private Label subjectLabel;
+
+    @FXML
+    private ProgressBar mainProgressBar;
+
+    @FXML
+    private HBox hBoxAttachments;
+
     private MenuItem markUnread = new MenuItem("Mark as Unread");
     private MenuItem deleteMessage = new MenuItem("Delete Message");
 
@@ -54,6 +76,7 @@ public class MainController extends AbstractController implements Initializable 
     // Methods
     @FXML
     void composeMessageAction() {
+        // Calls a new window for sending mail
         resourcesController.sendWindow();
     }
 
@@ -63,7 +86,7 @@ public class MainController extends AbstractController implements Initializable 
         setMailTreeView();
         setMailTableView();
         setFolderSelect();
-        setUnreadMessages();
+        setMessagesStyle();
         setMailProcess();
         setMessageSelect();
         setContextMenu();
@@ -98,12 +121,12 @@ public class MainController extends AbstractController implements Initializable 
         });
     }
 
-    private void setUnreadMessages() {
-        // Set the rows with unread messages as bolded
+    private void setMessagesStyle() {
+        // Set the rows with unread messages as bolded and attachments with italic
         mailTableView.setRowFactory(new Callback<>() {
             @Override
             public TableRow<MailMessage> call(TableView<MailMessage> param) {
-                // New class object with overridden method
+                // New TableRow object with overridden method
                 return new TableRow<>() {
                     @Override
                     protected void updateItem(MailMessage message, boolean empty) {
@@ -114,6 +137,10 @@ public class MainController extends AbstractController implements Initializable 
                                 setStyle("");
                             } else {
                                 setStyle("-fx-font-weight: bold");
+                            }
+
+                            if (message.isHasAttachments()) {
+                                setStyle("-fx-font-style: italic");
                             }
                         }
                     }
@@ -139,17 +166,57 @@ public class MainController extends AbstractController implements Initializable 
                     mailManage.setSelectedRead();
                 }
 
+                // Clear previous AttachmentButton objects in the hBox
+                hBoxAttachments.getChildren().clear();
+
+                // Sets current message to the one that's selected
                 mailProcess.setMailMessage(mailMessage);
+
+                try {
+                    loadAttachments(mailMessage);
+                } catch (MessagingException ignored) {
+
+                }
+
+                // Starts multithreading method from MailProcess (createTask())
                 mailProcess.restart();
+
+                // Set the labels according to the current Message
+                senderLabel.setText(mailMessage.getSender());
+                recipientLabel.setText(mailMessage.getRecipient());
+                subjectLabel.setText(mailMessage.getSubject());
             }
         });
     }
 
+    private void loadAttachments(MailMessage mailMessage) throws MessagingException {
+        // Determine what happens when a Message has / doesn't have attachments
+        if (mailMessage.isHasAttachments()) {
+            attachmentsLabel.setOpacity(1);
+            // Iterate through all the attachments
+            for (MimeBodyPart mimeBodyPart: mailMessage.getAttachments()) {
+                try {
+                    // Ignore null files
+                    if (!mimeBodyPart.getFileName().equals("null")) {
+                        AttachmentButton button = new AttachmentButton(mimeBodyPart, mainProgressBar);
+                        hBoxAttachments.getChildren().add(button);
+                    }
+                } catch (NullPointerException ignored) {
+                    /*
+                    Sometimes attachments present themselves as null and cause NullPointerException.
+                    In these cases, just ignore the null attachment
+                    */
+                }
+            }
+        } else {
+            // Hide attachmentsLabel if no attachments are present
+            attachmentsLabel.setOpacity(0);
+        }
+    }
+
     private void setContextMenu() {
         // Add right click context menu to tableView
-        markUnread.setOnAction(event -> {
-            mailManage.setSelectedUnread();
-        });
+        markUnread.setOnAction(event -> mailManage.setSelectedUnread());
 
         deleteMessage.setOnAction(event -> {
             mailManage.deleteSelected();
