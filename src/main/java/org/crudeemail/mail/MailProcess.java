@@ -10,7 +10,7 @@ import javafx.scene.web.WebEngine;
 
 import java.io.IOException;
 
-public final class MailProcess extends Service {
+public final class MailProcess extends Service<Void> {
 
     // Fields
     private MailMessage mailMessage;
@@ -22,9 +22,7 @@ public final class MailProcess extends Service {
         this.webEngine = webEngine;
         this.stringBuffer = new StringBuffer();
 
-        this.setOnSucceeded(event -> {
-            display();
-        });
+        this.setOnSucceeded(event -> display());
     }
 
     public void setMailMessage(MailMessage mailMessage) {
@@ -33,10 +31,10 @@ public final class MailProcess extends Service {
 
     // Methods
     @Override
-    protected Task createTask() {
-        return new Task() {
+    protected Task<Void> createTask() {
+        return new Task<>() {
             @Override
-            protected Object call() throws Exception {
+            protected Void call() throws Exception {
                 try {
                     load();
                 } catch (Exception e){
@@ -95,6 +93,8 @@ public final class MailProcess extends Service {
 
         return null;
     }
+
+    // getText method is from https://javaee.github.io/javamail/FAQ
 
     public static String getText(Part p, boolean breaks) throws MessagingException, IOException {
         // Message processing for display on tableView

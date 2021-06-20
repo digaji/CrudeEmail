@@ -1,7 +1,9 @@
 package org.crudeemail.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.web.HTMLEditor;
 import javafx.stage.Stage;
@@ -24,6 +26,12 @@ public class SendController extends AbstractController {
     @FXML
     private Label sendErrorLabel;
 
+    @FXML
+    private Button sendMailButton;
+
+    @FXML
+    private ProgressBar sendProgressBar;
+
     // Constructor
     public SendController(MailManage mailManage, ResourcesController resourcesController, String fxml) {
         super(mailManage, resourcesController, fxml);
@@ -39,6 +47,8 @@ public class SendController extends AbstractController {
                 contentInput.getHtmlText()
         );
         mailSend.start();
+        sendProgressBar.setOpacity(1);
+        sendMailButton.setDisable(true);
 
         mailSend.setOnSucceeded(event -> {
 
@@ -56,6 +66,8 @@ public class SendController extends AbstractController {
                     sendErrorLabel.setText("Network Error");
                     break;
             }
+            sendMailButton.setDisable(false);
+            sendProgressBar.setOpacity(0);
         });
     }
 

@@ -67,10 +67,10 @@ public class MailFolderFetch extends Service<Void> {
     }
 
     private void fetchMessagesFromFolder(Folder folder, MailTreeItem<String> mailTreeItem) {
-        Service fetchMessages = new Service() {
+        Service<Object> fetchMessages = new Service<>() {
             @Override
-            protected Task createTask() {
-                return new Task() {
+            protected Task<Object> createTask() {
+                return new Task<>() {
                     @Override
                     protected Object call() throws Exception {
                         // Check if folder has anymore additional subfolders

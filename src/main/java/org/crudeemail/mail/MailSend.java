@@ -27,7 +27,7 @@ public class MailSend extends Service<String> {
     // Methods
     @Override
     protected Task<String> createTask() {
-        return new Task() {
+        return new Task<>() {
             @Override
             protected String call() throws Exception {
                 try {

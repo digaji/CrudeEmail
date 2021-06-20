@@ -22,6 +22,9 @@ public class LoginGmailController extends AbstractController {
     private Label gmailErrorLabel;
 
     @FXML
+    private Button gmailLoginButton;
+
+    @FXML
     private ProgressBar gmailProgressBar;
 
     // Constructor
@@ -35,6 +38,8 @@ public class LoginGmailController extends AbstractController {
         if (validFields()) {
             MailAccount mailAccount = new MailAccount("gmail", gmailAddressInput.getText(), gmailPasswordInput.getText());
             MailLogin login = new MailLogin(mailAccount, mailManage);
+
+            gmailLoginButton.setDisable(true);
 
             // Start and execute login JavaFX service for multithreading
             login.start();
@@ -65,6 +70,7 @@ public class LoginGmailController extends AbstractController {
                 // Reset fields
                 gmailAddressInput.setText("");
                 gmailPasswordInput.setText("");
+                gmailLoginButton.setDisable(false);
                 gmailProgressBar.setOpacity(0);
             });
         }

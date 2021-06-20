@@ -6,7 +6,7 @@ import javafx.concurrent.Task;
 
 import java.util.List;
 
-public class MailFolderUpdater extends Service {
+public class MailFolderUpdater extends Service<Void> {
 
     // Fields
     private List<Folder> folders;
@@ -18,10 +18,10 @@ public class MailFolderUpdater extends Service {
 
     // Methods
     @Override
-    protected Task createTask() {
-        return new Task() {
+    protected Task<Void> createTask() {
+        return new Task<>() {
             @Override
-            protected Object call() throws Exception {
+            protected Void call() throws Exception {
                 // Infinite loop
                 while (true) {
                     try {
