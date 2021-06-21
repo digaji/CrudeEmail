@@ -21,6 +21,11 @@ and put the `mvn` command on your path.
 Now you can run `mvn clean install` and Maven will compile your project,
 and put the results in a shaded `jar` file in the `target` directory.
 
+To run the file:
+```PowerShell
+java -jar CrudeEmail-1.0-shaded.jar
+```
+
 Most IDEs also have support for Maven and can run Maven commands from within the project.
 
 # Notice for users who can run but don't get anything displayed
