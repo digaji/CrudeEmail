@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/JJ/Documents/Code/Java/CrudeEmail/src/main/java/org/crudeemail</OriginalElement>
+  <nodes>
+    <node x="162.59126670182877" y="2995.0">org.crudeemail.App</node>
+    <node x="429.80555555555554" y="735.0">org.crudeemail.mail.MailTreeItem</node>
+    <node x="895.375" y="0.0">org.crudeemail.mail.MailMessage</node>
+    <node x="385.30555555555554" y="1044.0">org.crudeemail.mail.MailFolderFetch</node>
+    <node x="1660.625065928271" y="1701.0">org.crudeemail.AttachmentButton</node>
+    <node x="1235.111111111111" y="2183.0">org.crudeemail.controller.LoginController</node>
+    <node x="861.1111111111111" y="2161.0">org.crudeemail.controller.SendController</node>
+    <node x="55.611111111111086" y="1745.0">org.crudeemail.controller.AbstractController</node>
+    <node x="294.0912667018288" y="2709.0">org.crudeemail.ResourcesController</node>
+    <node x="395.6111111111111" y="1360.0">org.crudeemail.mail.MailManage</node>
+    <node x="139.30555555555554" y="1110.0">org.crudeemail.mail.MailFolderUpdater</node>
+    <node x="956.4210618846687" y="1393.5">org.crudeemail.mail.MailSend</node>
+    <node x="470.1111111111111" y="2238.0">org.crudeemail.controller.LandingController</node>
+    <node x="1147.6710618846687" y="1066.0">org.crudeemail.mail.MailAccount</node>
+    <node x="162.59126670182877" y="3146.0">org.crudeemail.Build</node>
+    <node x="1636.579861111111" y="1985.0">org.crudeemail.controller.MainController</node>
+    <node x="1856.6250659282712" y="360.0">org.crudeemail.mail.MailProcess</node>
+    <node x="1290.548611111111" y="1734.0">org.crudeemail.mail.MailLogin</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.crudeemail.controller.SendController" target="org.crudeemail.ResourcesController" relationship="DEPENDENCY">
+      <point x="-88.5" y="139.0" />
+      <point x="949.6111111111111" y="2637.0" />
+      <point x="1028.3412667018288" y="2637.0" />
+      <point x="1028.3412667018288" y="2687.0" />
+      <point x="478.03571114627334" y="2687.0" />
+      <point x="33.44444444444446" y="-117.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.MainController" target="org.crudeemail.mail.MailMessage" relationship="DEPENDENCY">
+      <point x="-22.1875" y="-315.0" />
+      <point x="1791.892361111111" y="1934.0" />
+      <point x="1650.125065928271" y="1934.0" />
+      <point x="1650.125065928271" y="340.0" />
+      <point x="951.875" y="340.0" />
+      <point x="951.875" y="320.0" />
+      <point x="1008.125" y="320.0" />
+      <point x="-112.75" y="150.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.MainController" target="org.crudeemail.mail.MailProcess" relationship="TO_ONE">
+      <point x="110.9375" y="-315.0" />
+      <point x="1925.017361111111" y="1954.0" />
+      <point x="1988.125065928271" y="1954.0" />
+      <point x="1988.125065928271" y="714.0" />
+      <point x="2045.6250659282712" y="714.0" />
+      <point x="63.0" y="161.5" />
+    </edge>
+    <edge source="org.crudeemail.controller.LoginController" target="org.crudeemail.mail.MailManage" relationship="DEPENDENCY">
+      <point x="-44.75" y="-117.0" />
+      <point x="1369.361111111111" y="1954.0" />
+      <point x="1280.048611111111" y="1954.0" />
+      <point x="1280.048611111111" y="1670.0" />
+      <point x="726.7361111111111" y="1670.0" />
+      <point x="726.7361111111111" y="1660.0" />
+      <point x="581.6111111111111" y="1660.0" />
+      <point x="62.0" y="139.5" />
+    </edge>
+    <edge source="org.crudeemail.controller.LandingController" target="org.crudeemail.controller.AbstractController" relationship="GENERALIZATION">
+      <point x="92.75" y="-62.0" />
+      <point x="748.3611111111111" y="1964.0" />
+      <point x="1139.9210618846687" y="1964.0" />
+      <point x="1139.9210618846687" y="1944.0" />
+      <point x="381.1111111111111" y="1944.0" />
+      <point x="139.5" y="62.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.MainController" target="org.crudeemail.controller.AbstractController" relationship="GENERALIZATION">
+      <point x="-155.3125" y="-315.0" />
+      <point x="1658.767361111111" y="1964.0" />
+      <point x="1139.9210618846687" y="1964.0" />
+      <point x="1139.9210618846687" y="1944.0" />
+      <point x="381.1111111111111" y="1944.0" />
+      <point x="139.5" y="62.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailSend" target="org.crudeemail.mail.MailAccount" relationship="DEPENDENCY">
+      <point x="86.5" y="-106.0" />
+      <point x="1215.9210618846687" y="1329.0" />
+      <point x="1494.406315928271" y="1329.0" />
+      <point x="1494.406315928271" y="1319.0" />
+      <point x="1322.4210618846687" y="1319.0" />
+      <point x="58.25" y="95.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.AbstractController" target="org.crudeemail.mail.MailManage" relationship="DEPENDENCY">
+      <point x="93.0" y="-62.0" />
+      <point x="334.6111111111111" y="1670.0" />
+      <point x="726.7361111111111" y="1670.0" />
+      <point x="726.7361111111111" y="1660.0" />
+      <point x="581.6111111111111" y="1660.0" />
+      <point x="62.0" y="139.5" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailManage" target="org.crudeemail.mail.MailTreeItem" relationship="TO_ONE">
+      <point x="-27.555555555555543" y="-139.5" />
+      <point x="492.05555555555554" y="1309.0" />
+      <point x="374.80555555555554" y="1309.0" />
+      <point x="374.80555555555554" y="1023.0" />
+      <point x="427.18055555555554" y="1023.0" />
+      <point x="427.18055555555554" y="1013.0" />
+      <point x="501.80555555555554" y="1013.0" />
+      <point x="-72.0" y="128.5" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailManage" target="org.crudeemail.mail.MailMessage" relationship="TO_ONE">
+      <point x="55.111111111111086" y="-139.5" />
+      <point x="574.7222222222222" y="1319.0" />
+      <point x="819.5555555555555" y="1319.0" />
+      <point x="819.5555555555555" y="330.0" />
+      <point x="1337.375" y="330.0" />
+      <point x="1337.375" y="320.0" />
+      <point x="1233.625" y="320.0" />
+      <point x="112.75" y="150.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailProcess" target="org.crudeemail.mail.MailMessage" relationship="DEPENDENCY">
+      <point x="-63.0" y="-161.5" />
+      <point x="1919.6250659282712" y="340.0" />
+      <point x="951.875" y="340.0" />
+      <point x="951.875" y="320.0" />
+      <point x="1008.125" y="320.0" />
+      <point x="-112.75" y="150.0" />
+    </edge>
+    <edge source="org.crudeemail.ResourcesController" target="org.crudeemail.controller.SendController" relationship="CREATE">
+      <point x="66.88888888888891" y="-117.0" />
+      <point x="511.4801555907177" y="2657.0" />
+      <point x="1126.611111111111" y="2657.0" />
+      <point x="88.5" y="139.0" />
+    </edge>
+    <edge source="org.crudeemail.ResourcesController" target="org.crudeemail.mail.MailManage" relationship="DEPENDENCY">
+      <point x="-33.44444444444446" y="-117.0" />
+      <point x="411.1468222573843" y="2687.0" />
+      <point x="438.1111111111111" y="2687.0" />
+      <point x="438.1111111111111" y="1670.0" />
+      <point x="726.7361111111111" y="1670.0" />
+      <point x="726.7361111111111" y="1660.0" />
+      <point x="581.6111111111111" y="1660.0" />
+      <point x="62.0" y="139.5" />
+    </edge>
+    <edge source="org.crudeemail.ResourcesController" target="org.crudeemail.controller.AbstractController" relationship="DEPENDENCY">
+      <point x="-100.33333333333337" y="-117.0" />
+      <point x="344.2579333684954" y="2677.0" />
+      <point x="120.11111111111109" y="2677.0" />
+      <point x="120.11111111111109" y="1964.0" />
+      <point x="102.11111111111109" y="1964.0" />
+      <point x="-139.5" y="62.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.AbstractController" target="org.crudeemail.ResourcesController" relationship="DEPENDENCY">
+      <point x="46.5" y="62.0" />
+      <point x="288.1111111111111" y="1964.0" />
+      <point x="459.6111111111111" y="1964.0" />
+      <point x="459.6111111111111" y="2637.0" />
+      <point x="1028.3412667018288" y="2637.0" />
+      <point x="1028.3412667018288" y="2687.0" />
+      <point x="478.03571114627334" y="2687.0" />
+      <point x="33.44444444444446" y="-117.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailLogin" target="org.crudeemail.mail.MailAccount" relationship="TO_ONE">
+      <point x="31.625" y="-73.0" />
+      <point x="1448.673611111111" y="1660.0" />
+      <point x="1474.798611111111" y="1660.0" />
+      <point x="1474.798611111111" y="1339.0" />
+      <point x="1042.9210618846687" y="1339.0" />
+      <point x="1042.9210618846687" y="1319.0" />
+      <point x="1205.9210618846687" y="1319.0" />
+      <point x="-58.25" y="95.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.LoginController" target="org.crudeemail.ResourcesController" relationship="DEPENDENCY">
+      <point x="-89.5" y="117.0" />
+      <point x="1324.611111111111" y="2637.0" />
+      <point x="1028.3412667018288" y="2637.0" />
+      <point x="1028.3412667018288" y="2687.0" />
+      <point x="478.03571114627334" y="2687.0" />
+      <point x="33.44444444444446" y="-117.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.LoginController" target="org.crudeemail.mail.MailLogin" relationship="CREATE">
+      <point x="44.75" y="-117.0" />
+      <point x="1458.861111111111" y="1954.0" />
+      <point x="1417.048611111111" y="1954.0" />
+      <point x="0.0" y="73.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailFolderFetch" target="org.crudeemail.mail.MailTreeItem" relationship="TO_ONE">
+      <point x="-94.25" y="-117.0" />
+      <point x="479.55555555555554" y="1023.0" />
+      <point x="427.18055555555554" y="1023.0" />
+      <point x="427.18055555555554" y="1013.0" />
+      <point x="501.80555555555554" y="1013.0" />
+      <point x="-72.0" y="128.5" />
+    </edge>
+    <edge source="org.crudeemail.controller.MainController" target="org.crudeemail.mail.MailTreeItem" relationship="DEPENDENCY">
+      <point x="-66.5625" y="-315.0" />
+      <point x="1747.517361111111" y="1944.0" />
+      <point x="1639.125065928271" y="1944.0" />
+      <point x="1639.125065928271" y="1023.0" />
+      <point x="772.8055555555555" y="1023.0" />
+      <point x="772.8055555555555" y="1013.0" />
+      <point x="645.8055555555555" y="1013.0" />
+      <point x="72.0" y="128.5" />
+    </edge>
+    <edge source="org.crudeemail.controller.LandingController" target="org.crudeemail.mail.MailManage" relationship="DEPENDENCY">
+      <point x="-92.75" y="-62.0" />
+      <point x="562.8611111111111" y="1670.0" />
+      <point x="726.7361111111111" y="1670.0" />
+      <point x="726.7361111111111" y="1660.0" />
+      <point x="581.6111111111111" y="1660.0" />
+      <point x="62.0" y="139.5" />
+    </edge>
+    <edge source="org.crudeemail.controller.AbstractController" target="org.crudeemail.mail.MailManage" relationship="TO_ONE">
+      <point x="-93.0" y="-62.0" />
+      <point x="148.6111111111111" y="1680.0" />
+      <point x="123.92106188466869" y="1680.0" />
+      <point x="123.92106188466869" y="1660.0" />
+      <point x="457.6111111111111" y="1660.0" />
+      <point x="-62.0" y="139.5" />
+    </edge>
+    <edge source="org.crudeemail.controller.SendController" target="org.crudeemail.mail.MailManage" relationship="DEPENDENCY">
+      <point x="-118.0" y="-139.0" />
+      <point x="920.1111111111111" y="1954.0" />
+      <point x="882.7193213783396" y="1954.0" />
+      <point x="882.7193213783396" y="1670.0" />
+      <point x="726.7361111111111" y="1670.0" />
+      <point x="726.7361111111111" y="1660.0" />
+      <point x="581.6111111111111" y="1660.0" />
+      <point x="62.0" y="139.5" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailManage" target="org.crudeemail.mail.MailFolderUpdater" relationship="CREATE">
+      <point x="-55.111111111111086" y="-139.5" />
+      <point x="464.5" y="1319.0" />
+      <point x="308.05555555555554" y="1319.0" />
+      <point x="56.25" y="51.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailProcess" target="org.crudeemail.mail.MailMessage" relationship="TO_ONE">
+      <point x="63.0" y="-161.5" />
+      <point x="2045.6250659282712" y="330.0" />
+      <point x="1337.375" y="330.0" />
+      <point x="1337.375" y="320.0" />
+      <point x="1233.625" y="320.0" />
+      <point x="112.75" y="150.0" />
+    </edge>
+    <edge source="org.crudeemail.Build" target="org.crudeemail.App" relationship="DEPENDENCY">
+      <point x="0.0" y="-39.5" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="org.crudeemail.App" target="org.crudeemail.ResourcesController" relationship="CREATE">
+      <point x="37.25" y="-50.5" />
+      <point x="274.3412667018288" y="2969.0" />
+      <point x="444.5912667018288" y="2969.0" />
+      <point x="0.0" y="117.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailTreeItem" target="org.crudeemail.mail.MailProcess" relationship="DEPENDENCY">
+      <point x="96.0" y="-128.5" />
+      <point x="669.8055555555555" y="714.0" />
+      <point x="1977.125065928271" y="714.0" />
+      <point x="1977.125065928271" y="704.0" />
+      <point x="1919.6250659282712" y="704.0" />
+      <point x="-63.0" y="161.5" />
+    </edge>
+    <edge source="org.crudeemail.App" target="org.crudeemail.mail.MailManage" relationship="CREATE">
+      <point x="-37.25" y="-50.5" />
+      <point x="199.84126670182877" y="2969.0" />
+      <point x="26.0" y="2969.0" />
+      <point x="26.0" y="1670.0" />
+      <point x="726.7361111111111" y="1670.0" />
+      <point x="726.7361111111111" y="1660.0" />
+      <point x="581.6111111111111" y="1660.0" />
+      <point x="62.0" y="139.5" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailManage" target="org.crudeemail.mail.MailFolderUpdater" relationship="TO_ONE">
+      <point x="-82.66666666666663" y="-139.5" />
+      <point x="436.94444444444446" y="1329.0" />
+      <point x="195.55555555555554" y="1329.0" />
+      <point x="-56.25" y="51.0" />
+    </edge>
+    <edge source="org.crudeemail.ResourcesController" target="org.crudeemail.controller.MainController" relationship="CREATE">
+      <point x="133.77777777777783" y="-117.0" />
+      <point x="578.3690444796066" y="2677.0" />
+      <point x="1902.829861111111" y="2677.0" />
+      <point x="88.75" y="315.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailLogin" target="org.crudeemail.mail.MailManage" relationship="DEPENDENCY">
+      <point x="-31.625" y="-73.0" />
+      <point x="1385.423611111111" y="1670.0" />
+      <point x="726.7361111111111" y="1670.0" />
+      <point x="726.7361111111111" y="1660.0" />
+      <point x="581.6111111111111" y="1660.0" />
+      <point x="62.0" y="139.5" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailManage" target="org.crudeemail.mail.MailAccount" relationship="TO_ONE">
+      <point x="82.66666666666663" y="-139.5" />
+      <point x="602.2777777777777" y="1339.0" />
+      <point x="1042.9210618846687" y="1339.0" />
+      <point x="1042.9210618846687" y="1319.0" />
+      <point x="1205.9210618846687" y="1319.0" />
+      <point x="-58.25" y="95.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.SendController" target="org.crudeemail.controller.AbstractController" relationship="GENERALIZATION">
+      <point x="118.0" y="-139.0" />
+      <point x="1156.111111111111" y="1964.0" />
+      <point x="1139.9210618846687" y="1964.0" />
+      <point x="1139.9210618846687" y="1944.0" />
+      <point x="381.1111111111111" y="1944.0" />
+      <point x="139.5" y="62.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailTreeItem" target="org.crudeemail.mail.MailMessage" relationship="TO_MANY">
+      <point x="0.0" y="-128.5" />
+      <point x="573.8055555555555" y="714.0" />
+      <point x="531.3055555555555" y="714.0" />
+      <point x="531.3055555555555" y="330.0" />
+      <point x="1337.375" y="330.0" />
+      <point x="1337.375" y="320.0" />
+      <point x="1233.625" y="320.0" />
+      <point x="112.75" y="150.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailFolderFetch" target="org.crudeemail.mail.MailTreeItem" relationship="CREATE">
+      <point x="94.25" y="-117.0" />
+      <point x="668.0555555555555" y="1023.0" />
+      <point x="772.8055555555555" y="1023.0" />
+      <point x="772.8055555555555" y="1013.0" />
+      <point x="645.8055555555555" y="1013.0" />
+      <point x="72.0" y="128.5" />
+    </edge>
+    <edge source="org.crudeemail.controller.LandingController" target="org.crudeemail.ResourcesController" relationship="DEPENDENCY">
+      <point x="92.75" y="62.0" />
+      <point x="748.3611111111111" y="2637.0" />
+      <point x="1028.3412667018288" y="2637.0" />
+      <point x="1028.3412667018288" y="2687.0" />
+      <point x="478.03571114627334" y="2687.0" />
+      <point x="33.44444444444446" y="-117.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.MainController" target="org.crudeemail.ResourcesController" relationship="DEPENDENCY">
+      <point x="-88.75" y="315.0" />
+      <point x="1725.329861111111" y="2637.0" />
+      <point x="1028.3412667018288" y="2637.0" />
+      <point x="1028.3412667018288" y="2687.0" />
+      <point x="478.03571114627334" y="2687.0" />
+      <point x="33.44444444444446" y="-117.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailManage" target="org.crudeemail.mail.MailMessage" relationship="DEPENDENCY">
+      <point x="-110.22222222222217" y="-139.5" />
+      <point x="409.3888888888889" y="1339.0" />
+      <point x="128.80555555555554" y="1339.0" />
+      <point x="128.80555555555554" y="340.0" />
+      <point x="951.875" y="340.0" />
+      <point x="951.875" y="320.0" />
+      <point x="1008.125" y="320.0" />
+      <point x="-112.75" y="150.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.MainController" target="org.crudeemail.mail.MailMessage" relationship="TO_ONE">
+      <point x="155.3125" y="-315.0" />
+      <point x="1969.392361111111" y="1964.0" />
+      <point x="2119.1250659282714" y="1964.0" />
+      <point x="2119.1250659282714" y="330.0" />
+      <point x="1337.375" y="330.0" />
+      <point x="1337.375" y="320.0" />
+      <point x="1233.625" y="320.0" />
+      <point x="112.75" y="150.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailManage" target="org.crudeemail.mail.MailFolderFetch" relationship="CREATE">
+      <point x="0.0" y="-139.5" />
+      <point x="519.6111111111111" y="1299.0" />
+      <point x="573.8055555555555" y="1299.0" />
+      <point x="0.0" y="117.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.LoginController" target="org.crudeemail.mail.MailAccount" relationship="CREATE">
+      <point x="134.25" y="-117.0" />
+      <point x="1548.361111111111" y="1954.0" />
+      <point x="1556.361111111111" y="1954.0" />
+      <point x="1556.361111111111" y="1329.0" />
+      <point x="1494.406315928271" y="1329.0" />
+      <point x="1494.406315928271" y="1319.0" />
+      <point x="1322.4210618846687" y="1319.0" />
+      <point x="58.25" y="95.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.AbstractController" target="org.crudeemail.ResourcesController" relationship="TO_ONE">
+      <point x="-46.5" y="62.0" />
+      <point x="195.1111111111111" y="1964.0" />
+      <point x="191.6710618846687" y="1964.0" />
+      <point x="191.6710618846687" y="2667.0" />
+      <point x="377.70237781293986" y="2667.0" />
+      <point x="-66.88888888888891" y="-117.0" />
+    </edge>
+    <edge source="org.crudeemail.ResourcesController" target="org.crudeemail.controller.LandingController" relationship="CREATE">
+      <point x="0.0" y="-117.0" />
+      <point x="444.5912667018288" y="2647.0" />
+      <point x="562.8611111111111" y="2647.0" />
+      <point x="-92.75" y="62.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.LoginController" target="org.crudeemail.controller.AbstractController" relationship="GENERALIZATION">
+      <point x="-134.25" y="-117.0" />
+      <point x="1279.861111111111" y="1964.0" />
+      <point x="1139.9210618846687" y="1964.0" />
+      <point x="1139.9210618846687" y="1944.0" />
+      <point x="381.1111111111111" y="1944.0" />
+      <point x="139.5" y="62.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.MainController" target="org.crudeemail.AttachmentButton" relationship="CREATE">
+      <point x="22.1875" y="-315.0" />
+      <point x="1836.267361111111" y="1964.0" />
+      <point x="1813.625065928271" y="1964.0" />
+      <point x="0.0" y="106.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailLogin" target="org.crudeemail.mail.MailAccount" relationship="DEPENDENCY">
+      <point x="94.875" y="-73.0" />
+      <point x="1511.923611111111" y="1660.0" />
+      <point x="1494.406315928271" y="1660.0" />
+      <point x="1494.406315928271" y="1319.0" />
+      <point x="1322.4210618846687" y="1319.0" />
+      <point x="58.25" y="95.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailTreeItem" target="org.crudeemail.mail.MailMessage" relationship="CREATE">
+      <point x="-96.0" y="-128.5" />
+      <point x="477.80555555555554" y="714.0" />
+      <point x="520.3055555555555" y="714.0" />
+      <point x="520.3055555555555" y="340.0" />
+      <point x="951.875" y="340.0" />
+      <point x="951.875" y="320.0" />
+      <point x="1008.125" y="320.0" />
+      <point x="-112.75" y="150.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailSend" target="org.crudeemail.mail.MailAccount" relationship="TO_ONE">
+      <point x="-86.5" y="-106.0" />
+      <point x="1042.9210618846687" y="1319.0" />
+      <point x="1205.9210618846687" y="1319.0" />
+      <point x="-58.25" y="95.0" />
+    </edge>
+    <edge source="org.crudeemail.controller.MainController" target="org.crudeemail.mail.MailProcess" relationship="CREATE">
+      <point x="66.5625" y="-315.0" />
+      <point x="1880.642361111111" y="1944.0" />
+      <point x="1977.125065928271" y="1944.0" />
+      <point x="1977.125065928271" y="704.0" />
+      <point x="1919.6250659282712" y="704.0" />
+      <point x="-63.0" y="161.5" />
+    </edge>
+    <edge source="org.crudeemail.ResourcesController" target="org.crudeemail.mail.MailManage" relationship="TO_ONE">
+      <point x="-133.77777777777783" y="-117.0" />
+      <point x="310.81348892405094" y="2687.0" />
+      <point x="45.111111111111086" y="2687.0" />
+      <point x="45.111111111111086" y="1680.0" />
+      <point x="123.92106188466869" y="1680.0" />
+      <point x="123.92106188466869" y="1660.0" />
+      <point x="457.6111111111111" y="1660.0" />
+      <point x="-62.0" y="139.5" />
+    </edge>
+    <edge source="org.crudeemail.controller.SendController" target="org.crudeemail.mail.MailSend" relationship="CREATE">
+      <point x="0.0" y="-139.0" />
+      <point x="1038.361111111111" y="1660.0" />
+      <point x="1129.4210618846687" y="1660.0" />
+      <point x="0.0" y="106.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailManage" target="org.crudeemail.mail.MailTreeItem" relationship="CREATE">
+      <point x="27.555555555555543" y="-139.5" />
+      <point x="547.1666666666666" y="1309.0" />
+      <point x="772.8055555555555" y="1309.0" />
+      <point x="772.8055555555555" y="1013.0" />
+      <point x="645.8055555555555" y="1013.0" />
+      <point x="72.0" y="128.5" />
+    </edge>
+    <edge source="org.crudeemail.controller.MainController" target="org.crudeemail.mail.MailManage" relationship="DEPENDENCY">
+      <point x="-110.9375" y="-315.0" />
+      <point x="1703.142361111111" y="1954.0" />
+      <point x="1628.125065928271" y="1954.0" />
+      <point x="1628.125065928271" y="1670.0" />
+      <point x="726.7361111111111" y="1670.0" />
+      <point x="726.7361111111111" y="1660.0" />
+      <point x="581.6111111111111" y="1660.0" />
+      <point x="62.0" y="139.5" />
+    </edge>
+    <edge source="org.crudeemail.ResourcesController" target="org.crudeemail.controller.LoginController" relationship="CREATE">
+      <point x="100.33333333333337" y="-117.0" />
+      <point x="544.9246000351621" y="2667.0" />
+      <point x="1503.611111111111" y="2667.0" />
+      <point x="89.5" y="117.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailManage" target="org.crudeemail.mail.MailAccount" relationship="DEPENDENCY">
+      <point x="110.22222222222217" y="-139.5" />
+      <point x="629.8333333333333" y="1329.0" />
+      <point x="1494.406315928271" y="1329.0" />
+      <point x="1494.406315928271" y="1319.0" />
+      <point x="1322.4210618846687" y="1319.0" />
+      <point x="58.25" y="95.0" />
+    </edge>
+    <edge source="org.crudeemail.mail.MailLogin" target="org.crudeemail.mail.MailManage" relationship="TO_ONE">
+      <point x="-94.875" y="-73.0" />
+      <point x="1322.173611111111" y="1680.0" />
+      <point x="123.92106188466869" y="1680.0" />
+      <point x="123.92106188466869" y="1660.0" />
+      <point x="457.6111111111111" y="1660.0" />
+      <point x="-62.0" y="139.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.4" showDependencies="true" x="249.65775401069504" y="2305.485294117647" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -12,8 +12,6 @@ import org.crudeemail.mail.MailManage;
  */
 public class App extends Application {
 
-    private static Scene scene;
-
     @Override
     public void start(Stage stage) throws Exception {
         ResourcesController resourcesController = new ResourcesController(new MailManage());
