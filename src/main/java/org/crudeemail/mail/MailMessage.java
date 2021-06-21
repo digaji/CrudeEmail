@@ -9,6 +9,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * <h1>MailMessage</h1>
+ * Class that represents an email message. Stores all data related to the email message.
+ * Also handles the checks for new attachments in an email message.
+ * @version 1.0
+ */
 public class MailMessage {
 
     // Fields

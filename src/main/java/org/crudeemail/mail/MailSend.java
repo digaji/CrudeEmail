@@ -13,6 +13,12 @@ import javafx.concurrent.Task;
 import java.io.File;
 import java.util.List;
 
+/**
+ * <h1>MailSend</h1>
+ * Class for handling the sending of new email and attachments in SendController and send.fxml.
+ * Service is called in SendController.
+ * @version 1.0
+ */
 public class MailSend extends Service<String> {
 
     // Fields

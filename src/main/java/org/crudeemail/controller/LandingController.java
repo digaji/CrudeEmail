@@ -7,6 +7,12 @@ import javafx.stage.Stage;
 import org.crudeemail.ResourcesController;
 import org.crudeemail.mail.MailManage;
 
+/**
+ * <h1>LandingController</h1>
+ * Controller for landing.fxml.
+ * Holds a label and 2 buttons that leads to loginGmail.fxml and loginOutlook.fxml.
+ * @version 1.0
+ */
 public class LandingController extends AbstractController {
 
     // JavaFX Components

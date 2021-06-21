@@ -5,6 +5,11 @@ import jakarta.mail.Folder;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <h1>MailManage</h1>
+ * Class for managing folders, messages, and new MailAccount objects.
+ * @version 1.0
+ */
 public class MailManage {
 
     // Fields

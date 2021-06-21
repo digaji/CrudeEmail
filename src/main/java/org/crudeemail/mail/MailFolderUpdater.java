@@ -6,6 +6,12 @@ import javafx.concurrent.Task;
 
 import java.util.List;
 
+/**
+ * <h1>MailFolderUpdater</h1>
+ * Class for checking and updating new messages in open folders every 5 seconds.
+ * Service is called when MailManage is instantiated.
+ * @version 1.0
+ */
 public class MailFolderUpdater extends Service<Void> {
 
     // Fields

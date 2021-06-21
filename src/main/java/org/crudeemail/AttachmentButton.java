@@ -10,6 +10,13 @@ import javafx.scene.control.ProgressBar;
 import java.awt.*;
 import java.io.File;
 
+/**
+ * <h1>AttachmentButton</h1>
+ * Class to represent the attachment buttons in the right side of the main window.
+ * Only gets called in when attachment(s) are present in the email.
+ * Extended from original JavaFX Button.
+ * @version 1.0
+ */
 public class AttachmentButton extends Button {
 
     // Fields
@@ -19,6 +26,12 @@ public class AttachmentButton extends Button {
     private final String downloadPath;
 
     // Constructor
+    /**
+     * Constructor for AttachmentButton. Starts downloadAttachment method when clicked.
+     * @param mimeBodyPart the MimeBodyPart object which holds the attachment
+     * @param progressBar
+     * @throws MessagingException
+     */
     public AttachmentButton(MimeBodyPart mimeBodyPart, ProgressBar progressBar) throws MessagingException {
         this.mimeBodyPart = mimeBodyPart;
         this.progressBar = progressBar;
@@ -29,6 +42,12 @@ public class AttachmentButton extends Button {
     }
 
     // Methods
+    /**
+     * Service for handling attachment downloads.
+     * Sets progress bar to visible and button to disabled while the service is running.
+     * Prints "Downloaded to: " and the path of the file.
+     * When the service is finished, the button is set with a green background and further clicks will open the attachment externally.
+     */
     private void downloadAttachment() {
         // Saves the attachment to the download path
         Service<Void> service = new Service<>() {

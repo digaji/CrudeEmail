@@ -20,6 +20,13 @@ import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+/**
+ * <h1>MainController</h1>
+ * Controller for main.fxml.
+ * Holds TreeView, TableView, WebView, and other components for the main window.
+ * Handles how and what messages are displayed depending on the selected folder.
+ * @version 1.0
+ */
 public class MainController extends AbstractController implements Initializable {
 
     // JavaFX Components
@@ -154,6 +161,11 @@ public class MainController extends AbstractController implements Initializable 
         mailProcess = new MailProcess(mailWebView.getEngine());
     }
 
+    /**
+     * Sets the current message to the selected message in the tableView.
+     * Goes through the process of clearing previous attachments in hBoxAttachments, loading attachments,
+     * MailProcess service, and setting the information labels on the right side of the window.
+     */
     private void setMessageSelect() {
         // Determine what happens when a message is selected
         mailTableView.setOnMouseClicked(event -> {
@@ -189,6 +201,12 @@ public class MainController extends AbstractController implements Initializable 
         });
     }
 
+    /**
+     * Loads attachments when there are attachments present in the mailMessage.
+     * Ignores null files.
+     * @param mailMessage mailMessage object to be processed
+     * @throws MessagingException
+     */
     private void loadAttachments(MailMessage mailMessage) throws MessagingException {
         // Determine what happens when a Message has / doesn't have attachments
         if (mailMessage.isHasAttachments()) {

@@ -12,6 +12,13 @@ import javafx.concurrent.Task;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * <h1>MailFolderFetch</h1>
+ * Class for fetching and handling folders.
+ * Also handles the addMessageListener method to look for new updated messages in the folder.
+ * Service is called in MailManage.
+ * @version 1.0
+ */
 public class MailFolderFetch extends Service<Void> {
 
     // Fields
@@ -39,7 +46,7 @@ public class MailFolderFetch extends Service<Void> {
     }
 
     private void fetchFolders() throws MessagingException {
-        // Store folders in a Folder array
+        // Store folders in a Folder array and iterates through them
         Folder[] folders = store.getDefaultFolder().list();
         handleFolders(folders, folderRoot);
     }
@@ -63,7 +70,6 @@ public class MailFolderFetch extends Service<Void> {
                 handleFolders(folder.list(), mailTreeItem);
             }
         }
-
     }
 
     private void fetchMessagesFromFolder(Folder folder, MailTreeItem<String> mailTreeItem) {

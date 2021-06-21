@@ -5,6 +5,12 @@ import jakarta.mail.Store;
 
 import java.util.Properties;
 
+/**
+ * <h1>MailAccount</h1>
+ * Class that represents an email account. Stores all data related for processing the email account.
+ * The provider is determined through the string that is passed through when an object of the class is being instantiated.
+ * @version 1.0
+ */
 public class MailAccount {
 
     // Fields

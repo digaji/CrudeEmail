@@ -4,6 +4,12 @@ import jakarta.mail.*;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 
+/**
+ * <h1>MailLogin</h1>
+ * Class for handling authentication of MailAccount objects.
+ * Service is called in LoginController.
+ * @version 1.0
+ */
 public class MailLogin extends Service<String> {
 
     // Fields
@@ -60,7 +66,7 @@ public class MailLogin extends Service<String> {
     protected Task<String> createTask() {
         return new Task<>() {
             @Override
-            protected String call() throws Exception {
+            protected String call() {
                 return login();
             }
         };

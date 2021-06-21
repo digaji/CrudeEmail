@@ -8,6 +8,13 @@ import javafx.scene.web.WebEngine;
 
 import java.io.IOException;
 
+/**
+ * <h1>MailProcess</h1>
+ * Class that handles all MailMessage content processing. Also handles the service to load and display to the main window webView.
+ * Service is called in MainController.
+ * 2 static methods are used in MailTreeItem.
+ * @version 1.0
+ */
 public final class MailProcess extends Service<Void> {
 
     // Fields
@@ -92,6 +99,14 @@ public final class MailProcess extends Service<Void> {
         }
     }
 
+    /**
+     * Static method used when a MailMessage is being instantiated in MailTreeItem.
+     * Returns a string version of the message content without line breaks.
+     * @param p
+     * @return
+     * @throws MessagingException
+     * @throws IOException
+     */
     public static String getText(Part p) throws MessagingException, IOException {
         // Message processing for display on tableView
         if (p.isMimeType("text/*")) {
@@ -114,6 +129,14 @@ public final class MailProcess extends Service<Void> {
     }
     // getText method is from https://javaee.github.io/javamail/FAQ, modified to exclude line breaks
 
+    /**
+     * Static method used when a MailMessage is being instantiated in MailTreeItem.
+     * Returns true if the message contains attachments. Otherwise returns false.
+     * @param message
+     * @return
+     * @throws MessagingException
+     * @throws IOException
+     */
     public static boolean hasAttachments(Message message) throws MessagingException, IOException {
         // Determines if the message has attachments by seeing the number of BodyPart objects in the message
         if (message.isMimeType("multipart/mixed")) {

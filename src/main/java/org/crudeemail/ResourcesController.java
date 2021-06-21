@@ -10,6 +10,13 @@ import org.crudeemail.mail.MailManage;
 
 import java.io.IOException;
 
+/**
+ * <h1>ResourcesController</h1>
+ * Class that handles the windows / stages.
+ * When a window needs to be called by the program, the resources controller handles it through the variety of methods that it holds.
+ * Also handles when a window needs to be closed.
+ * @version 1.0
+ */
 public class ResourcesController {
 
     // Fields
@@ -21,7 +28,7 @@ public class ResourcesController {
     }
 
     // Methods
-    // Call in stages
+    // Call in window
     public void landingWindow() {
         System.out.println("Landing window called\n");
 
@@ -57,7 +64,12 @@ public class ResourcesController {
         initializeStage(controller, true);
     }
 
-    // Stage handling
+    /**
+     * Handles when a stage needs to be called upon.
+     * @param abstractController
+     * @param resizable sets if the window can be resized or not
+     */
+    // Window handling
     private void initializeStage(AbstractController abstractController, boolean resizable) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(abstractController.getFxml()));
         fxmlLoader.setController(abstractController);

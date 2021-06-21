@@ -9,6 +9,15 @@ import org.crudeemail.mail.MailAccount;
 import org.crudeemail.mail.MailLogin;
 import org.crudeemail.mail.MailManage;
 
+/**
+ * <h1>LoginController</h1>
+ * Controller for loginGmail.fxml and loginOutlook.fxml.
+ * Holds 2 input fields, 2 buttons, and 1 label.
+ * addressInput, passwordInput, and loginButton are for mail authentication.
+ * errorLabel indicates what error is returned after the loginAction method is called.
+ * backToLandingButton leads back to landing.fxml.
+ * @version 1.0
+ */
 public class LoginController extends AbstractController {
 
     // JavaFX Components
@@ -33,12 +42,17 @@ public class LoginController extends AbstractController {
     }
 
     // Methods
+    /**
+     * Checks what fxml file is currently open to determine provider.
+     * Starts MailLogin service for login and handles the window and or the errorLabel after that.
+     * @param mouseEvent
+     */
     @FXML
     void loginAction(MouseEvent mouseEvent) {
         if (validFields()) {
             String provider;
-            // Set provider depending on window being opened
 
+            // Set provider depending on window being opened
             if (getFxml().equals("loginGmail.fxml")) {
                 provider = "gmail";
             } else {

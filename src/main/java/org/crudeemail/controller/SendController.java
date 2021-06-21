@@ -17,6 +17,13 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <h1>SendController</h1>
+ * Controller for send.fxml.
+ * Holds 3 input fields, 2 buttons, and 1 label.
+ * Handles the sending of new email, attachments, and or the errorLabel.
+ * @version 1.0
+ */
 public class SendController extends AbstractController {
 
     // JavaFX Components
@@ -50,6 +57,10 @@ public class SendController extends AbstractController {
     }
 
     // Methods
+    /**
+     * onClick action for the sendButton.
+     * Starts MailSend service for sending mail and handles the window and or errorLabel after that.
+     */
     @FXML
     void sendMail() {
         MailSend mailSend = new MailSend(

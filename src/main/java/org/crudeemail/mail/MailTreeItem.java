@@ -10,6 +10,12 @@ import javafx.scene.control.TreeItem;
 
 import java.io.IOException;
 
+/**
+ * <h1>MailTreeItem</h1>
+ * Class for handling messages in the folders from treeView to the tableView.
+ * Extended from original JavaFX TreeItem.
+ * @param <String>
+ */
 public class MailTreeItem<String> extends TreeItem<String> {
 
     // Fields
@@ -30,6 +36,14 @@ public class MailTreeItem<String> extends TreeItem<String> {
     }
 
     // Methods
+    /**
+     * Processes message for display in tableView.
+     * Increments the unreadMessage count if the message passed is unread.
+     * @param message
+     * @return
+     * @throws MessagingException
+     * @throws IOException
+     */
     private MailMessage fetchMail(Message message) throws MessagingException, IOException {
         // Process Message object to get MailMessage object with all of its properties
         boolean isRead = message.getFlags().contains(Flags.Flag.SEEN);
